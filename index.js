@@ -6,8 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	let currentPage = 1;
 	let breeds = [];
 	let filteredBreeds = [];
-	let pageSize = 12; // количество отоброжаемых карточек на странице
+	let pageSize = 12; // number of cards per page
 
+
+	// Fetches the complete list of breeds
 	async function fetchBreeds() {
 		const response = await fetch('https://dog.ceo/api/breeds/list/all');
 		const data = await response.json();
@@ -31,18 +33,20 @@ document.addEventListener('DOMContentLoaded', function () {
 			const card = document.createElement('div');
 			card.className = 'catalog-item';
 			card.id = `${breed}`;
-			card.innerHTML = `<h2>${breed}</h2><img src="${imageUrl}" alt="Image of ${breed}">`; 
+			card.innerHTML = `<h2>${breed}</h2><img src="${imageUrl}" alt="Image of ${breed}">`;  
 
 			card.addEventListener('click', function () {
 				const searchQuery = `buy ${breed}`;
-				const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)} dog`;
+				const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)} dog`; // google search of a breed
 				window.location.href = googleUrl;
 			});
 
 			dogCardsContainer.appendChild(card);
 		}
-		updatePagination();
+		updatePagination(); 
 	}
+
+	// Updates the pagination visibility and labels
 
 	function updatePagination() {
 		prevLink.style.visibility = currentPage === 1 ? 'hidden' : 'visible';
@@ -50,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		prevLink.textContent = `Prev (Page ${currentPage - 1})`;
 		nextLink.textContent = `Next (Page ${currentPage + 1})`;
 	}
+
+	// Pagination handlers
 
 	prevLink.addEventListener('click', function (event) {
 		event.preventDefault();
@@ -67,12 +73,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	// Search filters for input box 
+
 	searchInput.addEventListener('input', function () {
 		const query = searchInput.value.toLowerCase();
 		filteredBreeds = breeds.filter(breed => breed.toLowerCase().includes(query));
-		currentPage = 1; // Reset to first page
+		currentPage = 1; // resets to first page
 		displayBreeds(currentPage);
 	});
+
+	// Initial fetch 
 
 	fetchBreeds().then(breedsData => {
 		for (let breed in breedsData) {

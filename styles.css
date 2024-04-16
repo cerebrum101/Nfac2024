@@ -253,7 +253,11 @@ body {
 	
 	text-align: center;
 	border-radius: 4px;
+
+	cursor: pointer; 
 }
+
+
 
 @media (max-width: 600px) {
 	.catalog-item {

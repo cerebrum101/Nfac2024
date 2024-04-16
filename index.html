@@ -9,29 +9,40 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wdth,wght@62.5..100,100..900&display=swap"
 		rel="stylesheet">
-	<title>Dogs</title>
+	<link rel="icon" type="image/png" href="dogs.png">
+	<title>Dog Finder</title>
 </head>
 
 <body>
 	<div class="site-wrapper">
-		<header class="header">
-			<nav class="nav">
-				<ul class="nav-list">
-					<li class="list-item"><a href="#" class="list-link">Home</a></li>
-					<li class="list-item"><a href="./catalog.html" class="list-link">Catalog</a></li>
-					<li class="list-item"><a href="./graph.html" class="list-link">Graph</a></li>
-				</ul>
-			</nav>
-		</header>
-		<h1 class="home-title">Find Your Perfect Dog Breed</h1>
+		
+		<h1 class="home-title">Find Your Perfect Dog!</h1>
 		<section class="search-section">
-			<input type="text" class="search-box" placeholder="Search dog breeds...">
-			<button class="search-button">Search</button>
+			<input type="text" class="search-box" id="breed-search" placeholder="Search dog breeds...">
 		</section>
+		
+		<p>Click on them!
+		</p>
+
+		<div id="dog-cards-container" class="catalog-list">
+			<!-- Example cards 
+
+			 <div class="catalog-item">Retriever</div>
+
+			  -->
+		</div>
+		<div class="pagination">
+			<a href="#" class="page-link">Prev</a>
+
+			<a href="#" class="page-link">Next</a>
+		</div>
 		<footer class="footer">
-			<p>© 2024 The Dog Site. Made by <a href="https://www.linkedin.com/in/ataykim/" class="footer-link">Atay</a> for Nfac All rights reserved.</p>
+			<p>© 2024 The Dog Site. Made by <a href="https://www.linkedin.com/in/ataykim/" class="footer-link">Atay</a>
+				for Nfac All rights reserved.</p>
+			<small><a href="https://www.youtube.com/watch?v=4QA30qkRYy8">I will get lucky!</a></small>
 		</footer>
 	</div>
+	<script src="./index.js"></script>
 </body>
 
 </html>
